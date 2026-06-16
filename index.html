@@ -41,17 +41,17 @@ animation: gradientAnimation 15s ease infinite;
         #noBtn {
             position: absolute;
         }
-        .salman {
+      .salman {
+    display: none;
+
     position: fixed;
     bottom: 20px;
     right: 20px;
 
-    width: 180px;
+    width: 220px;
     height: auto;
 
-    opacity: 0.95;
-
-    z-index: 1;
+    z-index: 1000;
 
     pointer-events: none;
 
@@ -138,23 +138,23 @@ animation: gradientAnimation 15s ease infinite;
             place: place
         })
     })
-    .then(response => response.text())
-    .then(data => {
+   .then(data => {
+
+    document.getElementById("salman").style.display = "block";
+
+    setTimeout(() => {
         alert(
             "🎉 MISSION ACCEPTED!\n\n" +
             "📅 " + date + "\n" +
             "🕖 " + time + "\n" +
             "📍 " + place + "\n\n" +
-            "Failure to attend may result in aggressive meme deployment. 😎"
+            "Bhai has blessed this evening plan. 🔥🕺"
         );
-    })
-    .catch(error => {
-        alert("❌ The Evening Committee encountered an issue.");
-        console.error(error);
-    });
-}
+    }, 500);
+
+})
 </script>
     </script>
-<img src="salman.gif" alt="Animated Salman Khan" class="salman">
+<img src="salman.gif" alt="Animated Salman Khan" class="salman" id="salman">
 </body>
 </html>
