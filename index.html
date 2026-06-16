@@ -3,383 +3,417 @@
 <head>
     <title>Evening Committee 🌆</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
 
-    <style>
+<html>
+<head>
+    <title>Evening Committee 🌆</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: white;
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            background: linear-gradient(
-                -45deg,
-                #DDE5D5,
-                #B6C4B6,
-                #A4B494,
-                #CCD5AE,
-                #DDE5D5
-            );
+<style>
 
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 40px 20px;
+        min-height: 100vh;
+        overflow-x: hidden;
+        color: white;
+
+        background: linear-gradient(
+            -45deg,
+            #DDE5D5,
+            #B6C4B6,
+            #A4B494,
+            #CCD5AE,
+            #DDE5D5
+        );
+
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
         }
 
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
+        50% {
+            background-position: 100% 50%;
+        }
 
-            50% {
-                background-position: 100% 50%;
-            }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
-            100% {
-                background-position: 0% 50%;
-            }
+    h1 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        margin-bottom: 30px;
+        font-size: 1rem;
+    }
+
+    #container {
+        position: relative;
+        min-height: 180px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    button {
+        padding: 15px 25px;
+        font-size: 18px;
+        margin: 12px;
+        cursor: pointer;
+        border: none;
+        border-radius: 12px;
+        transition: transform 0.2s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    #noBtn {
+        position: absolute;
+    }
+
+    #planForm {
+        display: none;
+        margin-top: 20px;
+        background: rgba(255,255,255,0.15);
+        padding: 25px;
+        border-radius: 20px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        backdrop-filter: blur(8px);
+    }
+
+    input {
+        padding: 12px;
+        width: 100%;
+        max-width: 300px;
+        border: none;
+        border-radius: 10px;
+        margin-top: 8px;
+    }
+
+    .confirm-btn {
+        margin-top: 25px;
+    }
+
+    #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 9998;
+    }
+
+    .salman {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 320px;
+        max-width: 80%;
+        z-index: 9999;
+        animation: salmanDance 1s ease-in-out infinite;
+    }
+
+    @keyframes salmanDance {
+        0%,100% {
+            transform:
+                translate(-50%, -50%)
+                translateY(0)
+                rotate(0deg);
+        }
+
+        25% {
+            transform:
+                translate(-50%, -50%)
+                translateY(-12px)
+                rotate(-3deg);
+        }
+
+        50% {
+            transform:
+                translate(-50%, -50%)
+                translateY(0)
+                rotate(3deg);
+        }
+
+        75% {
+            transform:
+                translate(-50%, -50%)
+                translateY(-12px)
+                rotate(-3deg);
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        body {
+            padding-top: 20px;
         }
 
         h1 {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-        }
-
-        .subtitle {
-            margin-bottom: 30px;
-            font-size: 1rem;
-        }
-
-        #container {
-            position: relative;
-            min-height: 120px;
+            font-size: 1.8rem;
         }
 
         button {
-            padding: 15px 25px;
-            font-size: 18px;
-            margin: 12px;
-            cursor: pointer;
-
-            border: none;
-            border-radius: 12px;
-
-            transition: transform 0.2s ease;
-        }
-
-        button:hover {
-            transform: scale(1.05);
-        }
-
-        #noBtn {
-            position: absolute;
-        }
-
-        #planForm {
-            display: none;
-
-            margin-top: 20px;
-
-            background: rgba(255,255,255,0.15);
-
-            padding: 25px;
-
-            border-radius: 20px;
-
-            max-width: 400px;
-
-            margin-left: auto;
-            margin-right: auto;
-
-            backdrop-filter: blur(8px);
-        }
-
-        input {
-            padding: 12px;
-            width: 100%;
-            max-width: 300px;
-
-            border: none;
-            border-radius: 10px;
-
-            margin-top: 8px;
-        }
-
-        .confirm-btn {
-            margin-top: 25px;
-        }
-
-        #overlay {
-            display: none;
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background: rgba(0,0,0,0.7);
-
-            z-index: 9998;
+            width: 90%;
         }
 
         .salman {
-            display: none;
-
-            position: fixed;
-
-            top: 50%;
-            left: 50%;
-
-            transform: translate(-50%, -50%);
-
-            width: 320px;
-            max-width: 80%;
-
-            z-index: 9999;
-
-            animation: salmanDance 1s ease-in-out infinite;
+            width: 260px;
         }
+    }
 
-        @keyframes salmanDance {
+</style>
+```
 
-            0%,100% {
-                transform:
-                    translate(-50%, -50%)
-                    translateY(0)
-                    rotate(0deg);
-            }
-
-            25% {
-                transform:
-                    translate(-50%, -50%)
-                    translateY(-12px)
-                    rotate(-3deg);
-            }
-
-            50% {
-                transform:
-                    translate(-50%, -50%)
-                    translateY(0)
-                    rotate(3deg);
-            }
-
-            75% {
-                transform:
-                    translate(-50%, -50%)
-                    translateY(-12px)
-                    rotate(-3deg);
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            body {
-                padding-top: 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            button {
-                width: 90%;
-            }
-
-            #noBtn {
-                width: auto;
-            }
-
-            .salman {
-                width: 260px;
-            }
-        }
-
-    </style>
 </head>
 
 <body>
 
-    <h1>🌆 Evening Committee</h1>
+```
+<h1>🌆 Evening Committee</h1>
 
-    <p class="subtitle">
-        Attendance is highly encouraged.
-        Failure to attend may result in aggressive meme deployment.
-    </p>
+<p class="subtitle">
+    Attendance is highly encouraged.
+    Failure to attend may result in aggressive meme deployment.
+</p>
 
-    <div id="container">
+<div id="container">
 
-        <button onclick="showPlanForm()">
-            🎉 Will Come
-        </button>
+    <button onclick="showPlanForm()">
+        🎉 Will Come
+    </button>
 
-        <button id="noBtn">
-            🚪 Let Me Escape
-        </button>
+    <button id="noBtn">
+        🚪 Let Me Escape
+    </button>
 
-    </div>
+</div>
 
-    <div id="planForm">
+<div id="planForm">
 
-        <h2>
-            🎉 Excellent choice.
-        </h2>
+    <h2>🎉 Excellent choice.</h2>
 
-        <p>Select a date:</p>
+    <p>Select a date:</p>
 
-        <input
-            type="date"
-            id="date"
-        >
+    <input type="date" id="date">
 
-        <p>Select a time:</p>
+    <p>Select a time:</p>
 
-        <input
-            type="time"
-            id="time"
-        >
+    <input type="time" id="time">
 
-        <p>Where should we meet?</p>
+    <p>Where should we meet?</p>
 
-        <input
-            type="text"
-            id="place"
-            placeholder="You Already Know"
-        >
-
-        <br>
-
-        <button
-            class="confirm-btn"
-            onclick="confirmPlan()"
-        >
-            ✅ Confirm Plans
-        </button>
-
-    </div>
-
-    <div id="overlay"></div>
-
-    <img
-        src="salman.gif"
-        alt="Salman Celebration"
-        class="salman"
-        id="salman"
+    <input
+        type="text"
+        id="place"
+        placeholder="You Already Know"
     >
-        <script>
 
-        const noBtn = document.getElementById("noBtn");
+    <br>
 
-        function moveButton() {
+    <button
+        class="confirm-btn"
+        onclick="confirmPlan()"
+    >
+        ✅ Confirm Plans
+    </button>
 
-            const maxX = window.innerWidth - noBtn.offsetWidth;
-            const maxY = window.innerHeight - noBtn.offsetHeight;
+</div>
 
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
+<div id="overlay"></div>
 
-            noBtn.style.left = randomX + "px";
-            noBtn.style.top = randomY + "px";
-        }
+<img
+    src="salman.gif"
+    alt="Salman Celebration"
+    class="salman"
+    id="salman"
+>
+```
+<script>
 
-        noBtn.addEventListener("mouseover", moveButton);
-        noBtn.addEventListener("touchstart", function(e) {
+    const noBtn = document.getElementById("noBtn");
+    const container = document.getElementById("container");
+
+    function moveButton() {
+
+        const maxX = container.offsetWidth - noBtn.offsetWidth;
+        const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+        const randomX = Math.max(
+            0,
+            Math.random() * maxX
+        );
+
+        const randomY = Math.max(
+            0,
+            Math.random() * maxY
+        );
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+    }
+
+    noBtn.addEventListener(
+        "mouseover",
+        moveButton
+    );
+
+    noBtn.addEventListener(
+        "touchstart",
+        function(e) {
             e.preventDefault();
             moveButton();
+        }
+    );
+
+    function showPlanForm() {
+
+        const form = document.getElementById(
+            "planForm"
+        );
+
+        form.style.display = "block";
+
+        form.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+    function confirmPlan() {
+
+        const date = document.getElementById(
+            "date"
+        ).value;
+
+        const time = document.getElementById(
+            "time"
+        ).value;
+
+        const place = document.getElementById(
+            "place"
+        ).value;
+
+        if (!date || !time || !place) {
+
+            alert(
+                "⚠️ The Evening Committee requires all details!"
+            );
+
+            return;
+        }
+
+        fetch(
+            "https://script.google.com/macros/s/AKfycbyAOfDnUW7hgUAXvahcf9lM5khxBHjTNXSrCTfsXVpkt2unV3NFhAAatGoj1iat4q7x/exec",
+            {
+                method: "POST",
+
+                body: JSON.stringify({
+                    date: date,
+                    time: time,
+                    place: place
+                })
+            }
+        )
+
+        .then(response => response.text())
+
+        .then(data => {
+
+            const overlay =
+                document.getElementById(
+                    "overlay"
+                );
+
+            const salman =
+                document.getElementById(
+                    "salman"
+                );
+
+            /* Show Salman immediately */
+
+            overlay.style.display = "block";
+
+            salman.style.display = "block";
+
+            /* Hide form */
+
+            document.getElementById(
+                "planForm"
+            ).style.display = "none";
+
+            /* Reset fields */
+
+            document.getElementById(
+                "date"
+            ).value = "";
+
+            document.getElementById(
+                "time"
+            ).value = "";
+
+            document.getElementById(
+                "place"
+            ).value = "";
+
+            /* Salman dances for 7 seconds */
+
+            setTimeout(() => {
+
+                salman.style.display = "none";
+
+                overlay.style.display = "none";
+
+                /* THEN show confirmation */
+
+                alert(
+                    "🎉 MISSION ACCEPTED!\n\n" +
+                    "📅 " + date + "\n" +
+                    "🕖 " + time + "\n" +
+                    "📍 " + place + "\n\n" +
+                    "Bhai has blessed this evening plan. 🔥"
+                );
+
+            }, 7000);
+
+        })
+
+        .catch(error => {
+
+            console.error(error);
+
+            alert(
+                "❌ The Evening Committee encountered an issue while saving the response."
+            );
+
         });
 
-        function showPlanForm() {
+    }
 
-            const form = document.getElementById("planForm");
-
-            form.style.display = "block";
-
-            form.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-        }
-
-        function confirmPlan() {
-
-            const date = document.getElementById("date").value;
-            const time = document.getElementById("time").value;
-            const place = document.getElementById("place").value;
-
-            if (!date || !time || !place) {
-
-                alert(
-                    "⚠️ The Evening Committee requires all details!"
-                );
-
-                return;
-            }
-
-            fetch(
-                "https://script.google.com/macros/s/AKfycbyAOfDnUW7hgUAXvahcf9lM5khxBHjTNXSrCTfsXVpkt2unV3NFhAAatGoj1iat4q7x/exec",
-                {
-                    method: "POST",
-                    body: JSON.stringify({
-                        date: date,
-                        time: time,
-                        place: place
-                    })
-                }
-            )
-            .then(response => response.text())
-
-            .then(data => {
-
-                const overlay = document.getElementById("overlay");
-                const salman = document.getElementById("salman");
-
-                overlay.style.display = "block";
-                salman.style.display = "block";
-
-                setTimeout(() => {
-
-                    alert(
-                        "🎉 MISSION ACCEPTED!\n\n" +
-                        "📅 " + date + "\n" +
-                        "🕖 " + time + "\n" +
-                        "📍 " + place + "\n\n" +
-                        "Bhai has blessed this evening plan. 🔥🕺"
-                    );
-
-                }, 500);
-
-                setTimeout(() => {
-
-                    salman.style.display = "none";
-                    overlay.style.display = "none";
-
-                }, 4000);
-
-                document.getElementById("planForm").style.display = "none";
-
-                document.getElementById("date").value = "";
-                document.getElementById("time").value = "";
-                document.getElementById("place").value = "";
-            })
-
-            .catch(error => {
-
-                console.error(error);
-
-                alert(
-                    "❌ The Evening Committee encountered an issue while saving the response."
-                );
-            });
-        }
-
-    </script>
+</script>
+```
 
 </body>
 </html>
