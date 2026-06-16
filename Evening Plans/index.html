@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evening Plans?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+    overflow: hidden;
+    color: white;
+
+    background: linear-gradient(
+    -45deg,
+    #DDE5D5,
+    #B6C4B6,
+    #A4B494,
+    #CCD5AE,
+    #DDE5D5
+);
+
+background-size: 400% 400%;
+animation: gradientAnimation 15s ease infinite;
+
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+        #container {
+            position: relative;
+            height: 300px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        #noBtn {
+            position: absolute;
+        }
+        .salman {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 180px;
+    height: auto;
+
+    opacity: 0.95;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation: salmanBounce 2s ease-in-out infinite;
+}
+
+@keyframes salmanBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(2deg);
+    }
+
+    75% {
+        transform: translateY(-10px) rotate(-2deg);
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <h1>🌆 What's the plan for this evening?</h1>
+
+    <div id="container">
+        <button onclick="showPlanForm()">🎉 Will Come</button>
+<button id="noBtn">🚪 Let Me Escape</button>
+    </div>
+<div id="planForm" style="display: none; margin-top: 30px;">
+    <h2>🎉 Awesome! Let's make a plan.</h2>
+
+    <p>Select a date:</p>
+    <input type="date" id="date">
+
+    <p>Select a time:</p>
+    <input type="time" id="time">
+
+    <p>Where should we meet?</p>
+    <input type="text" id="place" placeholder="e.g. CyberHub, Cafe, Movie..." style="padding:10px; width:250px;">
+
+    <br><br>
+
+    <button onclick="confirmPlan()">✅ Confirm Plans</button>
+</div>
+    <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", function () {
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+    });
+
+    function showPlanForm() {
+        document.getElementById("planForm").style.display = "block";
+    }
+
+   function confirmPlan() {
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const place = document.getElementById("place").value;
+
+    if (!date || !time || !place) {
+        alert("⚠️ The Evening Committee requires all details!");
+        return;
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbyAOfDnUW7hgUAXvahcf9lM5khxBHjTNXSrCTfsXVpkt2unV3NFhAAatGoj1iat4q7x/exec", {
+        method: "POST",
+        body: JSON.stringify({
+            date: date,
+            time: time,
+            place: place
+        })
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(
+            "🎉 MISSION ACCEPTED!\n\n" +
+            "📅 " + date + "\n" +
+            "🕖 " + time + "\n" +
+            "📍 " + place + "\n\n" +
+            "Failure to attend may result in aggressive meme deployment. 😎"
+        );
+    })
+    .catch(error => {
+        alert("❌ The Evening Committee encountered an issue.");
+        console.error(error);
+    });
+}
+</script>
+    </script>
+<img src="salman.gif" alt="Animated Salman Khan" class="salman">
+</body>
+</html>
