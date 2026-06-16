@@ -220,6 +220,14 @@
 
     <h2>🎉 Excellent choice.</h2>
 
+    <p>Name:</p>
+
+<input
+    type="text"
+    id="name"
+    placeholder="Captain Chaos? Meme Minister? Your actual name?"
+>
+
     <p>Select a date:</p>
 
     <input type="date" id="date">
@@ -309,6 +317,8 @@
 
     function confirmPlan() {
 
+        const name = document.getElementById("name").value;
+
         const date = document.getElementById(
             "date"
         ).value;
@@ -321,7 +331,7 @@
             "place"
         ).value;
 
-        if (!date || !time || !place) {
+        if (!name || !date || !time || !place) {
 
             alert(
                 "⚠️ The Evening Committee requires all details!"
@@ -335,11 +345,13 @@
             {
                 method: "POST",
 
-                body: JSON.stringify({
-                    date: date,
-                    time: time,
-                    place: place
-                })
+body: JSON.stringify({
+    name: name,
+    date: date,
+    time: time,
+    place: place
+})
+
             }
         )
 
