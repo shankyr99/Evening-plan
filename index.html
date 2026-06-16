@@ -140,19 +140,23 @@ animation: gradientAnimation 15s ease infinite;
     })
    .then(data => {
 
-    document.getElementById("salman").style.display = "block";
+   const salman = document.getElementById("salman");
 
-    setTimeout(() => {
-        alert(
-            "🎉 MISSION ACCEPTED!\n\n" +
-            "📅 " + date + "\n" +
-            "🕖 " + time + "\n" +
-            "📍 " + place + "\n\n" +
-            "Bhai has blessed this evening plan. 🔥🕺"
-        );
-    }, 500);
+salman.style.display = "block";
 
-})
+setTimeout(() => {
+    salman.style.zIndex = "9999";
+}, 100);
+
+setTimeout(() => {
+    alert(
+        "🎉 MISSION ACCEPTED!\n\n" +
+        "📅 " + date + "\n" +
+        "🕖 " + time + "\n" +
+        "📍 " + place + "\n\n" +
+        "Bhai has blessed this evening plan. 🔥🕺"
+    );
+}, 2000);
 </script>
     </script>
 <img src="salman.gif" alt="Animated Salman Khan" class="salman" id="salman">
